@@ -1,10 +1,16 @@
 from .models import Product, Order, OrderItem
-from .serializer import ProductSerializer, OrderItemSerializer, OrderSerializer
+from .serializer import (
+        ProductSerializer,
+        OrderItemSerializer,
+        OrderSerializer,
+        InvoiceItemSerializer,
+        InvoiceSerializer)
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 import traceback
 import json
+from .utils import invoice_builder
 
 # Create your views here.
 
@@ -59,14 +65,11 @@ def order(request):
         serializer = OrderSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            #order = Order.objects.get(id=serializer.data['id'])
-            #order_items = order.items.all()
-            #serializer2 = OrderItemSerializer(order_items, many=True)
-            '''
-            ahora a devolver la lista de items y el monto a pagar, para ello
-            crear un modelo de invoice (factura) y un serializer
-            '''
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            items = json.loads(json.dumps(serializer.data['items']))
+            invoice = invoice_builder(username=serializer.data['username'], items=items)
+            invoice.save()
+            serializer2 = InvoiceSerializer(invoice)
+            return Response(serializer2.data, status=status.HTTP_201_CREATED)
         else:
             print(serializer.errors)
             return Response({"error": 'the data is not valid'}, status=status.HTTP_406_NOT_ACCEPTABLE)

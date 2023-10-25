@@ -29,4 +29,13 @@ class Order(models.Model):
         return '{username: %s, items: %s}' % (self.username, self.items)
 
 
+class InvoiceItem(models.Model):
+    name = models.TextField(null=False)
+    price = models.FloatField()
+    quantity = models.FloatField()
 
+
+class Invoice(models.Model):
+    username = models.CharField(max_length=200)
+    items = models.ManyToManyField(InvoiceItem)
+    amount = models.FloatField(null=True)
