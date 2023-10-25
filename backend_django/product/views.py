@@ -59,6 +59,13 @@ def order(request):
         serializer = OrderSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            #order = Order.objects.get(id=serializer.data['id'])
+            #order_items = order.items.all()
+            #serializer2 = OrderItemSerializer(order_items, many=True)
+            '''
+            ahora a devolver la lista de items y el monto a pagar, para ello
+            crear un modelo de invoice (factura) y un serializer
+            '''
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             print(serializer.errors)

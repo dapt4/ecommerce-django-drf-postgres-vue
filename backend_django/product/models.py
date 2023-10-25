@@ -12,24 +12,18 @@ class Product(models.Model):
     def __str__(self):
         return '{name: %s, price: %s}' % (self.name, self.price)
 
-    def to_dict(self):
-        return {"name": self.name, "description": self.description,
-                "price": self.price, "image": self.image}
-
 
 class OrderItem(models.Model):
-    order = models.ForeignKey('Order', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.PositiveIntegerField()
     quantity = models.PositiveIntegerField()
 
     def __str__(self):
-        return '{order: %s,  product: %s, quantity: %s' % (
-            self.order, self.product, self.quantity)
+        return '{ product: %s, quantity: %s }' % (self.product, self.quantity)
 
 
 class Order(models.Model):
     username = models.CharField(max_length=200)
-    items = models.ManyToManyField(Product, through='OrderItem')
+    items = models.ManyToManyField(OrderItem)
 
     def __str__(self):
         return '{username: %s, items: %s}' % (self.username, self.items)

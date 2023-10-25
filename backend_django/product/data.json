@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "The elder scrolls V: Skyrim",
+    "description": "Role Playing Game",
+    "price": 39.99,
+    "image": "https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/VYVSURUZFBIIDIMKMVHHCLM7WI.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Fallout 76",
+    "description": "Role Playing Game",
+    "price": 39.99,
+    "image": "https://i.ytimg.com/vi/qSwmL71uC7U/maxresdefault.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Starfield",
+    "description": "Role Playing Game",
+    "price": 69.99,
+    "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1716740/capsule_616x353.jpg?t=1696622369"
+  },
+  {
+    "id": 4,
+    "name": "Super Mario RPG",
+    "description": "Role Playing Game",
+    "price": 39.99,
+    "image": "https://i.3djuegos.com/juegos/19191/super_mario_rpg/fotos/ficha/super_mario_rpg-5819066.jpg"
+  }
+]
