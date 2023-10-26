@@ -63,7 +63,6 @@ export default {
       const url = 'http://localhost:8000/product'
       const res = await fetch(url)
       const json = await res.json()
-      console.log(json)
       store.commit('setProducts', json)
       products.value = store.getters.getProducts
     }

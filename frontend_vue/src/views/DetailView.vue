@@ -34,7 +34,7 @@
 </template>
 <script setup>
 import store from '@/store'
-import { ref } from 'vue'
+import { ref, unref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const { params } = useRoute()
@@ -42,7 +42,7 @@ const id = parseInt(params.id)
 const item = ref(store.getters.getProduct(id))
 
 const handleAdd = () => {
-  store.commit('addItem', item)
+  store.commit('addItem', unref(item))
 }
 
 </script>

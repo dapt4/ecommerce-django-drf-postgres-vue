@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     products: [],
-    cartItems: []
+    cartItems: [],
+    invoice: {}
   },
   getters: {
     getProducts (state) {
@@ -18,7 +19,8 @@ export default createStore({
     getCartItem: (state) => (id) => {
       return state.cartItems.find(prod => prod.id === id)
     },
-    getNumberOfProducts: (state) => state.cartItems.length
+    getNumberOfProducts: (state) => state.cartItems.length,
+    getInvoice: (state) => state.invoice
   },
   mutations: {
     setProducts (state, products) {
@@ -48,6 +50,9 @@ export default createStore({
     },
     deleteItem (state, id) {
       state.cartItems.reduce(item => item.id !== id)
+    },
+    addInvoice (state, invoice) {
+      state.invoice = invoice
     }
   },
   actions: {

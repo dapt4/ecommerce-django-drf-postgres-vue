@@ -34,7 +34,7 @@
           </tr>
         </tbody>
       </table>
-      <div class="title amount">Amount: {{ amount }}</div>
+      <div class="title amount">Amount: {{ amount.toFixed(2) }}</div>
       <div class="buttons">
         <button @click="orderHandler" class="button is-primary pay">
           Pay
@@ -53,7 +53,7 @@ const items = ref(store.getters.getCartItems)
 const quantities = ref({})
 const amount = ref(0)
 const order = {
-  username: 'diego@mail.com',
+  username: 'user@mail.com',
   items: []
 }
 if (items.value.length > 0) {
@@ -81,7 +81,6 @@ const buildOrder = () => {
 }
 const orderHandler = () => {
   buildOrder()
-  console.log(order)
   sendOrder()
 }
 const sendOrder = async () => {
@@ -94,13 +93,11 @@ const sendOrder = async () => {
     }
   })
   const json = await res.json()
-  console.log(json)
-  if (res.status >= 200 && res.status < 300) {
-    alert('Done')
-  } else {
+  store.commit('addInvoice', json)
+  if (res.status > 300) {
     alert('There is an error')
   }
-  router.push('/')
+  router.push('/invoice')
 }
 watch(quantities.value, () => {
   amount.value = 0

@@ -3,7 +3,7 @@ from math import floor
 
 def invoice_builder(username, items):
     invoice = {'username': username}
-    invoice = Invoice.objects.create(username=username)
+    invoice = Invoice.objects.create(username=username, amount=0.0)
     amount = 0.0
     for item in items:
         product = Product.objects.get(id=item['product'])

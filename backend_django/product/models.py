@@ -38,4 +38,4 @@ class InvoiceItem(models.Model):
 class Invoice(models.Model):
     username = models.CharField(max_length=200)
     items = models.ManyToManyField(InvoiceItem)
-    amount = models.FloatField(null=True)
+    amount = models.FloatField()
