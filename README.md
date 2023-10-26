@@ -48,7 +48,7 @@ finally the project run with:
 open your RESTCLIENT (like postman) in: 
 
 `GET or POST http://localhost:8000/product`\
-`GET PUT DELETE http://localhost:8000/product/<int:id>`\
+`GET or PUT or DELETE http://localhost:8000/product/<int:id>`\
 `POST http://localhost:8000/order`
 
 ## Setup the frontend
