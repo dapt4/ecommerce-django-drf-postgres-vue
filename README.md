@@ -1,5 +1,7 @@
 # ecommerce-django-drf-postgres-vue
 
+![store](https://github.com/dapt4/ecommerce-django-drf-postgres-vue/assets/67972962/c4a267f0-c27b-4ab2-9dbd-8d862c6423f7)
+
 ## Setup the backend
 
 go to backend folder
