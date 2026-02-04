@@ -6,14 +6,15 @@ authors = ["dapt <diegodapt18@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-django = "^4.2.6"
-djangorestframework = "^3.14.0"
-psycopg2-binary = "^2.9.9"
+python = "^3.13"
+django = "^5.2.8"
+djangorestframework = "^3.16.0"
+psycopg2-binary = "^2.9.11"
 pynvim = "^0.4.3"
 django-cors-headers = "^4.3.0"
 python-dotenv = "^1.0.0"
-
+msgpack = "^1.1.0"
+greenlet = "^3.1.1"
 
 [build-system]
 requires = ["poetry-core"]

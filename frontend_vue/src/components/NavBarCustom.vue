@@ -3,7 +3,7 @@
     <div class="navbar-brand">
       <router-link class="navbar-item" to="/">
         <img
-          src="https://bulma.io/images/bulma-logo.png"
+          src="/logo.png"
           width="112"
           height="28"
         />
